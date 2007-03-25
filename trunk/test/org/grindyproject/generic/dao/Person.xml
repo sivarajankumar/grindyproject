@@ -6,6 +6,12 @@
 		<result property="id" column="id" />
 		<result property="name" column="name" />
 	</resultMap>
+	
+	<resultMap id="local" class="org.grindyproject.generic.model.PersonLocal">
+		<result property="id" column="id" />
+		<result property="title" column="title" />
+		<result property="parentId" column="parent_id" />
+	</resultMap>
 		
 	<select id="getPerson" resultMap="result">
 		SELECT id, name FROM person WHERE id=#value#
@@ -21,6 +27,17 @@
 	
 	<select id="getPersonCountByParameters" resultClass="java.lang.Integer" parameterClass="org.grindyproject.generic.model.QueryParameters">
 		SELECT count(*) FROM person WHERE id>#params.id#
+	</select>
+	
+	<select id="getPersonLocalObjects" resultMap="local" parameterClass="org.grindyproject.generic.model.QueryParameters">
+		SELECT id, title, parent_id FROM person_local 
+		<dynamic prepend="WHERE">
+			parent_id IN (
+			<iterate property="params.objectList" conjunction=",">
+				#params.objectList[].id#	
+			</iterate>
+			)
+		</dynamic>
 	</select>
 	
 	<insert id="addPerson">
