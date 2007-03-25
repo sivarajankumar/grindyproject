@@ -18,8 +18,7 @@ public class SqlMapUtils {
 	/**
 	 * Helper method which help to get PK field name
 	 * 
-	 * @param o
-	 *            the object
+	 * @param o the object
 	 * @return PK field name
 	 */
 	protected static String getPrimaryKeyFieldName(Object o) {
@@ -40,8 +39,7 @@ public class SqlMapUtils {
 	/**
 	 * Helper method which help to get PK value
 	 * 
-	 * @param o
-	 *            the object
+	 * @param o the object
 	 * @return PK value
 	 */
 	protected static Object getPrimaryKeyFieldValue(Object o) {
@@ -103,5 +101,9 @@ public class SqlMapUtils {
 
 	protected static String getCountQuery(String className) {
 		return "get" + className + "CountByParameters";
+	}
+	
+	protected static String getRelatedQuery(String className) {
+		return "get" + className + "LocalObjects";
 	}
 }

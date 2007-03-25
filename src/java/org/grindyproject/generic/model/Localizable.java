@@ -19,4 +19,7 @@ public interface Localizable<T> {
 	
 	public T createObject();
 	
+	public Long getParentId();
+	
+	public void setParentId(Long parentId);	
 }

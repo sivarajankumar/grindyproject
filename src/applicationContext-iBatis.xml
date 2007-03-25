@@ -46,7 +46,7 @@
 		</constructor-arg>
 	</bean>
 
-	<bean id="personDao" class="org.grindyproject.generic.data.ibatis.SqlMapGenericDao">
+	<bean id="personDao" class="org.grindyproject.generic.data.ibatis.SqlMapGenericDaoLocal">
 		<constructor-arg value="org.grindyproject.generic.model.Person" />
 		<property name="sqlMapClient" ref="sqlMapClient" />
 	</bean>

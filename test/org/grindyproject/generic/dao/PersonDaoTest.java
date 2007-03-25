@@ -12,6 +12,7 @@ import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.grindyproject.generic.data.GenericDao;
+import org.grindyproject.generic.data.GenericDaoLocal;
 import org.grindyproject.generic.model.Lang;
 import org.grindyproject.generic.model.Localizable;
 import org.grindyproject.generic.model.Person;
@@ -26,19 +27,19 @@ import org.springframework.dao.DataAccessException;
  */
 public class PersonDaoTest extends GrindyTestCase{
 
-	private GenericDao<Person, Long> personDao;
+	private GenericDaoLocal<Person, Long, PersonLocal> personDao;
 	
 	protected final Log log = LogFactory.getLog(getClass());
 
 	/**
 	 * @param personDao the personDao to set
 	 */
-	public void setPersonDao(GenericDao<Person, Long> personDao) {
+	public void setPersonDao(GenericDaoLocal<Person, Long, PersonLocal> personDao) {
 		this.personDao = personDao;
 	}		
 	
 	public void testLocal() throws Exception {
-		Person person = new Person();
+		/*Person person = new Person();
 		Lang lang_en = new Lang(1L, "English");
 		Lang lang_ru = new Lang(2L, "Russian");
 		Lang lang_az = new Lang(3L, "Azeri");
@@ -60,6 +61,13 @@ public class PersonDaoTest extends GrindyTestCase{
 		for(PersonLocal pl : person.getLocal()) {
 			log.info("Lang is " + pl.getLanguage().getFullName());
 			log.info("Title is " + pl.getTitle());
+		}*/
+		List<Person> list = personDao.getAll();
+		for(Person person : list) {
+			log.info("Object" + person.getName() + ", title is ");
+			for(PersonLocal pl : person.getLocal()) {
+				log.info("Title:" + pl.getTitle());
+			}
 		}
 	}
 	

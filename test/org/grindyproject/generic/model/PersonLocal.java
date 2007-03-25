@@ -14,7 +14,7 @@ public class PersonLocal extends Entity implements Localizable<PersonLocal>{
 	
 	private String title;
 	private Lang language;	
-	
+	private Long parentId;
 
 	/**
 	 * @return the title
@@ -49,6 +49,20 @@ public class PersonLocal extends Entity implements Localizable<PersonLocal>{
 	 */
 	public PersonLocal createObject() {
 		return new PersonLocal();
+	}
+
+	/**
+	 * @return the parentId
+	 */
+	public Long getParentId() {
+		return parentId;
+	}
+
+	/**
+	 * @param parentId the parentId to set
+	 */
+	public void setParentId(Long parentId) {
+		this.parentId = parentId;
 	}
 	
 	
