@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//iBATIS.com//DTD SQL Map 2.0//EN" "http://www.ibatis.com/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="Person">    
+	<resultMap id="result" class="org.grindyproject.generic.model.Person">
+		<result property="id" column="id" />
+		<result property="name" column="name" />
+	</resultMap>
+		
+	<select id="getPerson" resultMap="result">
+		SELECT id, name FROM person WHERE id=#value#
+	</select>
+	
+	<select id="getPersons" resultMap="result">
+		SELECT id, name FROM person
+	</select>
+	
+	<select id="getPersonsByParameters" resultMap="result" parameterClass="org.grindyproject.generic.model.QueryParameters">
+		SELECT id, name FROM person WHERE id>#params.id# LIMIT #limit# OFFSET #offset#
+	</select>		
+	
+	<select id="getPersonCountByParameters" resultClass="java.lang.Integer" parameterClass="org.grindyproject.generic.model.QueryParameters">
+		SELECT count(*) FROM person WHERE id>#params.id#
+	</select>
+	
+	<insert id="addPerson">
+		INSERT INTO person (name) VALUES (#name#)
+		<selectKey resultClass="java.lang.Long">
+			SELECT CAST(last_value as INTEGER) AS VALUE
+			FROM person_id_seq
+		</selectKey>
+	</insert>
+	
+	<update id="updatePerson">
+		UPDATE person SET name=#name# WHERE id=#id#
+	</update>
+	
+	<delete id="deletePerson">
+		DELETE FROM person WHERE id=#value#
+	</delete>
+</sqlMap>
