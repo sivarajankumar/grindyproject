@@ -9,6 +9,7 @@ package org.grindyproject.generic.model;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Base class for all localizable objects
  * 
@@ -16,7 +17,7 @@ import java.util.List;
  * @version 1.0
  */
 public abstract class BaseLocalizableObject<T extends Localizable> extends Entity{
-
+	
 	public List<T> local;
 
 	/**
@@ -26,18 +27,15 @@ public abstract class BaseLocalizableObject<T extends Localizable> extends Entit
 		super();
 	}
 
-	@SuppressWarnings("unchecked")
-	protected T createNewObject(Lang lang) {
-		//
-		return null;
-	}
 
-	public void prepare(List<Lang> langs) {
+	public void prepare(List<Lang> langs, Localizable<T> obj) {
 		List<T> tmp = new ArrayList<T>();
 
 		if (local == null || local.size() == 0) {
 			for (Lang lang : langs) {
-				tmp.add(createNewObject(lang));
+				T object = obj.createObject();
+				object.setLanguage(lang);
+				tmp.add(object);
 			}
 		} else {
 			for (Lang lang : langs) {
@@ -45,7 +43,7 @@ public abstract class BaseLocalizableObject<T extends Localizable> extends Entit
 				T localTmp = null;
 				
 				for (T locals : getLocal()) {
-					if (lang == locals.getLanguage()) {
+					if (lang == locals.getLanguage()) {						
 						result = true;
 						localTmp = locals;
 						break;
@@ -55,7 +53,9 @@ public abstract class BaseLocalizableObject<T extends Localizable> extends Entit
 				if (result) {
 					tmp.add(localTmp);
 				} else {
-					tmp.add(createNewObject(lang));
+					T object = obj.createObject();
+					object.setLanguage(lang);
+					tmp.add(object);
 				}
 
 			}

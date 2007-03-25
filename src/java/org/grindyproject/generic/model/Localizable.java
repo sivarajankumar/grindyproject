@@ -11,10 +11,12 @@ package org.grindyproject.generic.model;
  * @author Sergey S. Akberov
  * @version 1.0
  */
-public interface Localizable {
+public interface Localizable<T> {
 	
 	public Lang getLanguage();
 	
 	public void setLanguage(Lang language);	
+	
+	public T createObject();
 	
 }

@@ -13,6 +13,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.grindyproject.generic.data.GenericDao;
 import org.grindyproject.generic.model.Lang;
+import org.grindyproject.generic.model.Localizable;
 import org.grindyproject.generic.model.Person;
 import org.grindyproject.generic.model.PersonLocal;
 import org.grindyproject.generic.model.QueryParameters;
@@ -46,10 +47,19 @@ public class PersonDaoTest extends GrindyTestCase{
 		list.add(lang_ru);
 		list.add(lang_az);
 		
-		person.prepare(list);
+		PersonLocal pr = new PersonLocal();
+		pr.setId(2L);
+		pr.setLanguage(lang_ru);
+		pr.setTitle("Hi");
+		List<PersonLocal> ls = new ArrayList<PersonLocal>();
+		ls.add(pr);
+		person.setLocal(ls);
+		
+		person.prepare(list, pr);
 		
 		for(PersonLocal pl : person.getLocal()) {
 			log.info("Lang is " + pl.getLanguage().getFullName());
+			log.info("Title is " + pl.getTitle());
 		}
 	}
 	

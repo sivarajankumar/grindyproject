@@ -10,7 +10,7 @@ package org.grindyproject.generic.model;
  * @author Sergey S. Akberov
  *
  */
-public class PersonLocal extends Entity implements Localizable{
+public class PersonLocal extends Entity implements Localizable<PersonLocal>{
 	
 	private String title;
 	private Lang language;	
@@ -43,6 +43,15 @@ public class PersonLocal extends Entity implements Localizable{
 	public void setLanguage(Lang language) {
 		this.language = language;
 	}
+
+	/* (non-Javadoc)
+	 * @see org.grindyproject.generic.model.Localizable#createObject()
+	 */
+	public PersonLocal createObject() {
+		return new PersonLocal();
+	}
+	
+	
 	
 	
 }
