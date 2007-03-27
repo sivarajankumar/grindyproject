@@ -16,7 +16,7 @@ public class Entity {
 	/**
 	 * Entity's primary key
 	 */
-	private Long id = new Long(0);
+	protected Long id;
 
 	/**
 	 * @return the id
@@ -37,7 +37,7 @@ public class Entity {
 	 * @return if object is new or exists in DB
 	 */
 	public boolean isNew() {
-		return (this.id.longValue() == 0);
+		return (this.id == null);
 	}	
 	
 	/**

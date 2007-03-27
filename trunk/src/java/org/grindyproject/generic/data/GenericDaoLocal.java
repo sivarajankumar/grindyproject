@@ -9,6 +9,7 @@ package org.grindyproject.generic.data;
 import java.io.Serializable;
 import java.util.List;
 
+import org.grindyproject.generic.model.Lang;
 import org.grindyproject.generic.model.Localizable;
 import org.grindyproject.generic.model.QueryParameters;
 
@@ -19,11 +20,11 @@ import org.grindyproject.generic.model.QueryParameters;
  */
 public interface GenericDaoLocal<T, PK extends Serializable, K extends Localizable> extends GenericDao<T, PK> {
 	
-	public List<T> getAllByLanguage();
+	public List<T> getAllByLanguage(Lang lang);
 	
 	public List<T> getAllByLanguage(QueryParameters qp);
 	
-	public T getByLanguage();
+	public T getByLanguage(PK id);
 	
 	public Integer getAllByLangugageCount(QueryParameters qp);
 }

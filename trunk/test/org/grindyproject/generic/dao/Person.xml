@@ -40,6 +40,14 @@
 		</dynamic>
 	</select>
 	
+	<insert id="addPersonLocal">
+		INSERT INTO person_local (title, parent_id) VALUES (#title#, #parentId#)
+		<selectKey resultClass="java.lang.Long">
+			SELECT CAST(last_value as INTEGER) AS VALUE
+			FROM person_local_id_seq
+		</selectKey>
+	</insert>
+	
 	<insert id="addPerson">
 		INSERT INTO person (name) VALUES (#name#)
 		<selectKey resultClass="java.lang.Long">
@@ -50,6 +58,10 @@
 	
 	<update id="updatePerson">
 		UPDATE person SET name=#name# WHERE id=#id#
+	</update>
+	
+	<update id="updatePersonLocal">
+		UPDATE person_local SET title=#title# WHERE id=#id#
 	</update>
 	
 	<delete id="deletePerson">
