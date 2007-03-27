@@ -7,7 +7,7 @@
 package org.grindyproject.generic.model;
 
 /**
- * @author Sergey S. Akberov
+ * @author <a href="mailto:sergey@linux.az">Sergey S. Akberov</a>
  *
  */
 public class PersonLocal extends Entity implements Localizable<PersonLocal>{

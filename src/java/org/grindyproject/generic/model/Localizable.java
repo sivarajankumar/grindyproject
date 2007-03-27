@@ -8,7 +8,7 @@ package org.grindyproject.generic.model;
 
 /**
  * ILocalizable interface
- * @author Sergey S. Akberov
+ * @author <a href="mailto:sergey@linux.az">Sergey S. Akberov</a>
  * @version 1.0
  */
 public interface Localizable<T> {

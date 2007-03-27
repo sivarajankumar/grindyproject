@@ -10,7 +10,7 @@ import java.lang.reflect.Method;
 
 
 /**
- * @author Sergey S. Akberov
+ * @author <a href="mailto:sergey@linux.az">Sergey S. Akberov</a>
  * @version 1.0
  */
 public class SqlMapUtils {
