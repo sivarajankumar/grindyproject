@@ -62,13 +62,32 @@ public class PersonDaoTest extends GrindyTestCase{
 			log.info("Lang is " + pl.getLanguage().getFullName());
 			log.info("Title is " + pl.getTitle());
 		}*/
-		List<Person> list = personDao.getAll();
+		/*List<Person> list = personDao.getAll();
 		for(Person person : list) {
 			log.info("Object" + person.getName() + ", title is ");
 			for(PersonLocal pl : person.getLocal()) {
 				log.info("Title:" + pl.getTitle());
 			}
-		}
+		}*/
+		PersonLocal pl1 = new PersonLocal();
+		pl1.setTitle("Test_1_en1");
+		pl1.setId(15L);
+		PersonLocal pl2 = new PersonLocal();
+		pl2.setTitle("Test_2_ru1");
+		pl2.setId(16L);
+		PersonLocal pl3 = new PersonLocal();
+		pl3.setTitle("Test_3_az1");
+		pl3.setId(17L);
+		Person p = new Person();
+		p.setName("Ilgar-idiot");
+		p.getLocal().add(pl1);
+		p.getLocal().add(pl2);
+		p.getLocal().add(pl3);
+		p.setId(37L);
+		personDao.save(p);
+		log.info("PK is " + p.getId());
+		setComplete();
+		endTransaction();
 	}
 	
 	/*public void testGetPageableData() throws Exception {

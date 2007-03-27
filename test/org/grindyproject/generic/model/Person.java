@@ -11,8 +11,7 @@ package org.grindyproject.generic.model;
  *
  */
 public class Person extends BaseLocalizableObject<PersonLocal>{	
-	private String name;
-	
+	private String name;	
 	
 	/**
 	 * Default constructor

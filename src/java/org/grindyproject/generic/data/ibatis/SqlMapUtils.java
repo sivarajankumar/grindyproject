@@ -6,34 +6,23 @@
  */
 package org.grindyproject.generic.data.ibatis;
 
-import java.lang.reflect.Field;
 import java.lang.reflect.Method;
+
 
 /**
  * @author Sergey S. Akberov
  * @version 1.0
  */
 public class SqlMapUtils {
-
+	
 	/**
 	 * Helper method which help to get PK field name
 	 * 
 	 * @param o the object
 	 * @return PK field name
 	 */
-	protected static String getPrimaryKeyFieldName(Object o) {
-		String fieldName = null;
-		Field fieldList[] = o.getClass().getDeclaredFields();
-
-		for (int i = 0; i < fieldList.length; i++) {
-			Field field = fieldList[i];
-			if (field.getName().equals("id")
-					|| field.getName().indexOf("Id") > -1) {
-				fieldName = field.getName();
-				break;
-			}
-		}
-		return fieldName;
+	protected static String getPrimaryKeyFieldName(Object o) {		
+		return "id";
 	}
 
 	/**
@@ -44,9 +33,10 @@ public class SqlMapUtils {
 	 */
 	protected static Object getPrimaryKeyFieldValue(Object o) {
 		String fieldName = getPrimaryKeyFieldName(o);
+		
 		String getter = "get" + Character.toUpperCase(fieldName.charAt(0))
-				+ fieldName.substring(1);
-
+				+ fieldName.substring(1);		
+		
 		try {
 			Method method = o.getClass().getMethod(getter, null);
 			return method.invoke(o, null);
@@ -105,5 +95,25 @@ public class SqlMapUtils {
 	
 	protected static String getRelatedQuery(String className) {
 		return "get" + className + "LocalObjects";
+	}
+	
+	protected static String getSelectByLanguage(String className) {
+		return "get" + className + "s" + "ByLanguage";
+	}
+	
+	protected static String getFindByLanguage(String className) {
+		return "get" + className + "ByLanguage";
+	}
+	
+	protected static String getLocalCountQuery(String className) {
+		return "get" + className + "CountByLanguage";
+	}
+
+	public static String getInsertLocalQuery(String className) {
+		return "add" + className + "Local";
+	}
+
+	public static String getUpdateLocalQuery(String className) {
+		return "update" + className + "Local";
 	}
 }
