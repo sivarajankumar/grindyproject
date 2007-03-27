@@ -22,7 +22,7 @@ import org.grindyproject.generic.test.GrindyTestCase;
 import org.springframework.dao.DataAccessException;
 
 /**
- * @author Sergey S. Akberov
+ * @author <a href="mailto:sergey@linux.az">Sergey S. Akberov</a>
  *
  */
 public class PersonDaoTest extends GrindyTestCase{

@@ -12,7 +12,7 @@ import org.grindyproject.generic.service.GenericManager;
 import org.grindyproject.generic.test.GrindyTestCase;
 
 /**
- * @author Sergey S. Akberov
+ * @author <a href="mailto:sergey@linux.az">Sergey S. Akberov</a>
  *
  */
 public class PersonManagerTest extends GrindyTestCase {

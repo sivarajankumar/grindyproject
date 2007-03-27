@@ -19,7 +19,7 @@ import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 import org.springframework.util.ClassUtils;
 
 /**
- * @author Sergey S. Akberov
+ * @author <a href="mailto:sergey@linux.az">Sergey S. Akberov</a>
  * @version 1.0
  */
 public class SqlMapGenericDao<T, PK extends Serializable> extends

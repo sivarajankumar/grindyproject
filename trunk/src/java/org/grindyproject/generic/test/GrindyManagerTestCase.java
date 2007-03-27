@@ -12,7 +12,7 @@ import org.jmock.MockObjectTestCase;
 
 /**
  * Base class for all test methods
- * @author Sergey S. Akberov
+ * @author <a href="mailto:sergey@linux.az">Sergey S. Akberov</a>
  * @version 1.0
  */
 public abstract class GrindyManagerTestCase extends MockObjectTestCase {

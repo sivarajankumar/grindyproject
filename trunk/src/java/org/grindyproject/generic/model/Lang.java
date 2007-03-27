@@ -9,7 +9,7 @@ package org.grindyproject.generic.model;
 
 /**
  * Lang object
- * @author Sergey S. Akberov
+ * @author <a href="mailto:sergey@linux.az">Sergey S. Akberov</a>
  * @version 1.0
  */
 public class Lang extends Entity{
