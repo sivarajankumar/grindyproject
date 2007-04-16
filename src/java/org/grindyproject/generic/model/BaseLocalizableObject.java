@@ -18,7 +18,7 @@ import java.util.List;
  */
 public abstract class BaseLocalizableObject<T extends Localizable> extends Entity{
 	
-	protected List<T> local = new ArrayList<T>();
+	private List<T> local = new ArrayList<T>();
 	
 	/**
 	 * Default constructor for BaseObject
