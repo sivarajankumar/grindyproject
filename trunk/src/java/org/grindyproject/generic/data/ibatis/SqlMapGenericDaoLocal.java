@@ -161,8 +161,7 @@ public class SqlMapGenericDaoLocal<T extends BaseLocalizableObject<K>, PK extend
 
 		for (int i = 0; i < list.size(); i++) {
 			K obj = list.get(i);
-			Integer tmpId = ListUtils.<T> findElement(objects, obj
-					.getParentId());
+			Integer tmpId = ListUtils.<T> findElement(objects, obj.getParentId());
 			if (-1 != tmpId.intValue()) {
 				objects.get(tmpId.intValue()).getLocal().add(obj);
 			}

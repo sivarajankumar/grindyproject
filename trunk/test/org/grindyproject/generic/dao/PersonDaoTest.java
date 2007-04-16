@@ -71,19 +71,19 @@ public class PersonDaoTest extends GrindyTestCase{
 		}*/
 		PersonLocal pl1 = new PersonLocal();
 		pl1.setTitle("Test_1_en1");
-		pl1.setId(15L);
+		//pl1.setId(15L);
 		PersonLocal pl2 = new PersonLocal();
 		pl2.setTitle("Test_2_ru1");
-		pl2.setId(16L);
+		//pl2.setId(16L);
 		PersonLocal pl3 = new PersonLocal();
 		pl3.setTitle("Test_3_az1");
-		pl3.setId(17L);
+		//pl3.setId(17L);
 		Person p = new Person();
 		p.setName("Ilgar-idiot");
 		p.getLocal().add(pl1);
 		p.getLocal().add(pl2);
 		p.getLocal().add(pl3);
-		p.setId(37L);
+		//p.setId(37L);
 		personDao.save(p);
 		log.info("PK is " + p.getId());
 		setComplete();

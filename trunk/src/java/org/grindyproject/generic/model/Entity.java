@@ -16,7 +16,7 @@ public class Entity {
 	/**
 	 * Entity's primary key
 	 */
-	protected Long id;
+	private Long id;
 
 	/**
 	 * @return the id
