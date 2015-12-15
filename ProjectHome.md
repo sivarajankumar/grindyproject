@@ -1,0 +1,1 @@
+Java-based education content management system. Project uses JSR-170.
